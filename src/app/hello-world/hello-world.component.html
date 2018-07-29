@@ -1,0 +1,12 @@
+<div>
+  <h1>Hello world</h1>
+  <p>Courses({{Courses.length}})</p>
+  <ul>
+    <li *ngFor="let course of Courses">
+      {{course.title}}
+      <button (click)="deleteCourse(course.id)" class="btn btn-danger">Delete</button>
+    </li>
+  </ul>
+  <input [(ngModel)]="courseTitle">
+  <button (click)="addCourse(courseTitle)" class="btn btn-success">Add New Course</button>
+</div>

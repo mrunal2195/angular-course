@@ -1,0 +1,48 @@
+<div class="container-fluid">
+  <h1>Cource Navigator</h1>
+  <div class="row">
+    <div class="col-4">
+      <ul class="list-group">
+        <li class="list-group-item active">Courses - {{courses.length}}</li>
+        <div class="input-group mb-3">
+            <input type="text" class="form-control" placeholder="Add New Course" [(ngModel)]="courseTitle" aria-label="New Course" aria-describedby="basic-addon2">
+            <div class="input-group-append">
+              <button class="btn btn-secondary" (click)="addCourse(courseTitle)">+</button>
+            </div>
+          </div>
+        <li *ngFor="let course of courses" class="list-group-item" (click)="getAllModulesForCourse(course.id)">
+          {{course.title}}
+          <span class="fa fa-close"></span>
+        </li>
+      </ul>
+    </div> 
+    <div class="col-4">
+      <ul class="list-group">
+        <li class="list-group-item active">Modules-{{modules.length}} for {{courseId}}</li>
+        <div class="input-group mb-3">
+            <input type="text" class="form-control" placeholder="Add New Module" [(ngModel)]="moduleTitle" aria-label="New Module" aria-describedby="basic-addon2">
+            <div class="input-group-append">
+              <button class="btn btn-secondary"(click)="addModule(moduleTitle)">+</button>
+            </div>
+        </div>
+        <li class="list-group-item" *ngFor="let module of modules" (click)="getLessonsForModule(module.id)">
+          {{module.title}}
+        </li>
+      </ul>
+    </div>
+    <div class="col-4">
+        <ul class="list-group">
+          <li class="list-group-item active">Lessons-{{lessons.length}} for {{ModuleId}}</li>
+          <div class="input-group mb-3">
+              <input type="text" class="form-control" placeholder="Add New Lesson" [(ngModel)]="lessonTitle" aria-label="New Module" aria-describedby="basic-addon2">
+              <div class="input-group-append">
+                <button class="btn btn-secondary"(click)="addLesson(lessonTitle)">+</button>
+              </div>
+          </div>
+          <li class="list-group-item" *ngFor="let lesson of lessons">
+            {{lesson.title}}
+          </li>
+        </ul>
+      </div>
+  </div>
+</div>
